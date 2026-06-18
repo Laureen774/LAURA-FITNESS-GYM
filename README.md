@@ -27,6 +27,3 @@ A responsive gym website built with HTML5, CSS3, Bootstrap 5, and JavaScript.
 
 ## Author
 Laureen Telesia
-
-## Git Commits
-commits showing incremental development from 17 June to 28 June 2026.
