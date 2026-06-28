@@ -127,6 +127,16 @@
       color: #bf3604;
     }
 
+    .success-message {
+      display: none;
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 14px;
+      background: #e8f8ef;
+      color: #23643d;
+      border: 1px solid #c1e9d3;
+    }
+
     footer {
       text-align: center;
       padding: 1.5rem 2rem 3rem;
@@ -152,22 +162,31 @@
   <div class="container">
     <h1>Contact Us</h1>
     <p>Have questions? We’re here to help you start your fitness journey.</p>
-    <form>
+    <form id="contactForm">
       <label for="name">Your Name</label>
       <input type="text" id="name" name="name" placeholder="Your Name" pattern="[A-Za-z\s]+" title="Please enter letters and spaces only." required>
       <label for="phone">Your Phone Number</label>
       <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" pattern="\d+" inputmode="numeric" title="Please enter numbers only." required>
       <label for="email">Your Email</label>
-      <input type="email" id="email" name="email" placeholder="Your Email" pattern="[a-zA-Z0-9._%+-]+@(gmail\.com|institution\.edu|outlook\.com|yahoo\.com)" title="Use email.com, institution.edu, outlook.com, or yahoo.com." required>
+      <input type="email" id="email" name="email" placeholder="Your Email" pattern="[a-zA-Z0-9._%+-]+@(email\.com|institution\.edu|outlook\.com|yahoo\.com)" title="Use email.com, institution.edu, outlook.com, or yahoo.com." required>
       <label for="message">Your Message</label>
       <textarea id="message" rows="5" name="message" placeholder="Your Message" required></textarea>
       <button class="btn" type="submit">Send Message</button>
     </form>
+    <div id="successMessage" class="success-message">Your message has been received successfully, we will reach you as soon as possible.</div>
     <div class="contact-info">
       <p><b>Location:</b> Mlolongo Housing Estate, Nairobi Province, KE</p>
       <p><b>Phone:</b> +254 792919568</p>
     </div>
   </div>
   <footer>© 2026 Laura Fitness Gym</footer>
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      var successMessage = document.getElementById('successMessage');
+      successMessage.style.display = 'block';
+      this.reset();
+    });
+  </script>
 </body>
 </html>
