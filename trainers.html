@@ -3,8 +3,112 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trainers | FitZone</title>
+  <title>Trainers | Laura Fitness Gym</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f6f7fb;
+      color: #222;
+    }
+
+    nav {
+      background: #f8f8f8;
+      padding: 0 2rem;
+      border-bottom: 2px solid #eee;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0;
+      padding: 0.8rem 0 0;
+    }
+
+    nav ul li a {
+      display: inline-block;
+      padding: 12px 18px;
+      text-decoration: none;
+      color: #555;
+      background: #fff;
+      border: 2px solid transparent;
+      border-radius: 10px 10px 0 0;
+      font-weight: 600;
+      transition: all 0.25s ease;
+    }
+
+    nav ul li a:hover {
+      background: #fff7f0;
+      color: #ff4d00;
+      border-color: #ffd1b3;
+    }
+
+    nav ul li a.active {
+      background: #fff;
+      color: #ff4d00;
+      border-color: #ff4d00;
+      border-bottom-color: transparent;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: linear-gradient(180deg, rgba(255,77,0,0.08), rgba(255,255,255,0.95));
+      border-radius: 24px;
+      box-shadow: 0 18px 60px rgba(0,0,0,0.08);
+    }
+
+    .container h1 {
+      margin-top: 0;
+      font-size: 2.7rem;
+      color: #1a1a1a;
+    }
+
+    .container p {
+      line-height: 1.8;
+      color: #444;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 18px;
+      border: 1px solid #f0f0f0;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+    }
+
+    .card h2 {
+      color: #ff4d00;
+      margin-top: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 2rem 3rem;
+      color: #777;
+      font-size: 0.95rem;
+    }
+
+    footer p {
+      display: inline-block;
+      background: #ffefeb;
+      color: #bf3604;
+      padding: 0.75rem 1.2rem;
+      border-radius: 999px;
+      box-shadow: inset 0 0 0 1px rgba(255,77,0,0.15);
+    }
+  </style>
 </head>
 <body>
   <nav>
@@ -23,21 +127,21 @@
   <div class="container">
     <h1>Meet Our Trainers</h1>
     <p>One-on-one coaching with tailored plans, form guidance, and accountability for faster results.</p>
-    
+
     <div class="card-grid">
       <div class="card">
         <h2>Coach Jonathan</h2>
-        <p><b>Specialty:</b> HIIT & Strength Training <br>
+        <p><strong>Specialty:</strong> HIIT & Strength Training<br>
         8+ years helping clients build endurance and confidence.</p>
       </div>
       <div class="card">
         <h2>Coach Christine</h2>
-        <p><b>Specialty:</b> Yoga & Mobility <br>
+        <p><strong>Specialty:</strong> Yoga & Mobility<br>
         Certified instructor focused on recovery and flexibility.</p>
       </div>
       <div class="card">
         <h2>Coach Abakuslai</h2>
-        <p><b>Specialty:</b> Spin & Cardio <br>
+        <p><strong>Specialty:</strong> Spin & Cardio<br>
         High-energy classes designed to burn and tone.</p>
       </div>
     </div>
