@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join Now | Laura Fitness Gym</title>
+  <style>
+    body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: #f6f7fb; color: #222; }
+    
+    nav { background: #fff; padding: 0 2rem; border-bottom: 2px solid #eee; position: sticky; top: 0; z-index: 10; }
+    nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0; padding: 0.8rem 0 0; }
+    nav ul li a { display: inline-block; padding: 12px 18px; text-decoration: none; color: #555; background: #fff; border: 2px solid transparent; border-radius: 10px 10px 0 0; font-weight: 600; transition: all 0.25s ease; }
+    nav ul li a:hover { background: #fff7f0; color: #ff4d00; border-color: #ffd1b3; }
+    nav ul li a.active { background: #fff; color: #ff4d00; border-color: #ff4d00; border-bottom-color: transparent; }
+
+    .offer-banner {
+      background: linear-gradient(135deg, #00aaff, #0077cc);
+      color: #fff;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .offer-banner h1 { font-size: 2.8rem; margin: 0 0 0.5rem; }
+    .offer-banner p { font-size: 1.15rem; margin: 0 0 1.8rem; opacity: 0.95; }
+    .badge { display: inline-block; background: #ff4d00; color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 0.9rem; font-weight: 700; margin-bottom: 1rem; }
+    .btn { display: inline-block; background: #fff; color: #0077cc; padding: 14px 28px; border-radius: 10px; text-decoration: none; font-weight: 700; border: none; cursor: pointer; transition: transform 0.2s; }
+    .btn:hover { transform: scale(1.05); }
+
+    .container {
+      max-width: 650px;
+      margin: -2rem auto 3rem;
+      padding: 2.5rem;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.12);
+      position: relative;
+    }
+    .container h2 { margin-top: 0; color: #1a1a1a; font-size: 2rem; }
+    form input, form select { width: 100%; padding: 14px; margin: 12px 0; border: 1.5px solid #ddd; border-radius: 10px; font-size: 1rem; font-family: inherit; }
+    form input:focus, form select:focus { border-color: #00aaff; outline: none; }
+    
+    .price-box {
+      background: #f0f9ff;
+      padding: 1.8rem;
+      border-radius: 16px;
+      margin: 1.5rem 0;
+      border: 2px solid #00aaff;
+    }
+    .price-row { display: flex; justify-content: space-between; margin: 10px 0; font-size: 1rem; }
+    .price-row.total { font-weight: 800; font-size: 1.3rem; color: #ff4d00; border-top: 2px solid #ddd; padding-top: 12px; margin-top: 12px; }
+    .strike { text-decoration: line-through; color: #888; font-size: 1rem; }
+    .save-tag { color: #0a8f00; font-weight: 700; }
+
+    footer { text-align: center; padding: 2.5rem 2rem; background: #1a1a1a; color: #ccc; margin-top: 3rem; font-size: 0.95rem; line-height: 1.8; }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="trainers.html">Trainers</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="join.html" class="active">Join</a></li>
+    </ul>
+  </nav>
+
+  <section class="offer-banner">
+    <span class="badge">LIMITED TIME</span>
+    <h1>Ready to Start Your Fitness Journey?</h1>
+    <p>Get 20% OFF your first month on any plan. Offer ends 30 June 2026.</p>
+    <a href="#join-form" class="btn">Claim 20% OFF Now</a>
+  </section>
+
+  <div class="container" id="join-form">
+    <h2>Join Laura Fitness Gym</h2>
+    <form>
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <input type="tel" placeholder="Phone Number" required>
+      
+      <select id="planSelect" required>
+        <option value="" disabled selected>Choose Your Plan</option>
+        <option value="22400" data-name="Basic">Basic - Ksh 22,400 / month</option>
+        <option value="28500" data-name="Standard - Most Popular">Standard - Ksh 28,500 / month</option>
+        <option value="42800" data-name="Premium">Premium - Ksh 42,800 / month</option>
+      </select>
+
+      <div class="price-box" id="priceSummary" style="display:none;">
+        <div class="price-row">
+          <span id="planName">Plan</span>
+          <span class="strike" id="originalPrice">Ksh 0</span>
+        </div>
+        <div class="price-row save-tag">
+          <span>First Month 20% OFF</span>
+          <span id="discountAmount">-Ksh 0</span>
+        </div>
+        <div class="price-row total">
+          <span>You Pay Today:</span>
+          <span id="finalPrice">Ksh 0</span>
+        </div>
+        <small>Then Ksh <span id="regularPrice">0</span>/month after the first month</small>
+      </div>
+
+      <button class="btn" type="submit" style="width:100%; background:#ff4d00; color:#fff; margin-top:15px; font-size:1.1rem;">Join Now & Save 20%</button>
+    </form>
+  </div>
+
+  <footer>
+    📍 Mlolongo, Nairobi | ☎ 0792919568 | ✉ ruglaura357@gmail.com <br>
+    © 2026 Laura Fitness Gym. All rights reserved.
+  </footer>
+
+  <script>
+    const planSelect = document.getElementById('planSelect');
+    const priceSummary = document.getElementById('priceSummary');
+    const planName = document.getElementById('planName');
+    const originalPrice = document.getElementById('originalPrice');
+    const discountAmount = document.getElementById('discountAmount');
+    const finalPrice = document.getElementById('finalPrice');
+    const regularPrice = document.getElementById('regularPrice');
+
+    planSelect.addEventListener('change', () => {
+      const price = parseFloat(planSelect.value);
+      const name = planSelect.options[planSelect.selectedIndex].dataset.name;
+      
+      if(price) {
+        const discount = price * 0.20;
+        const discountedPrice = price - discount;
+
+        planName.textContent = name;
+        originalPrice.textContent = `Ksh ${price.toLocaleString()}`;
+        discountAmount.textContent = `-Ksh ${discount.toLocaleString()}`;
+        finalPrice.textContent = `Ksh ${discountedPrice.toLocaleString()}`;
+        regularPrice.textContent = price.toLocaleString();
+        priceSummary.style.display = 'block';
+      } else {
+        priceSummary.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
