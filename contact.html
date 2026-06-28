@@ -74,6 +74,23 @@
       margin-bottom: 1.6rem;
     }
 
+     .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .login-note {
+      margin: 0;
+      color: #2e8b57;
+      font-weight: 600;
+    }jy
+
+   
+
     form {
       display: grid;
       gap: 1rem;
@@ -142,6 +159,65 @@
       border: 1px solid #c1e9d3;
     }
 
+    .error-message {
+      display: none;
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 14px;
+      background: #fff2f2;
+      color: #b42318;
+      border: 1px solid #fecaca;
+    }
+
+    .login-link {
+      color: #2e8b57;
+      font-weight: 600;
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+    }
+
+    .login-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .login-row span {
+      color: #2e8b57;
+      font-weight: 600;
+    }
+
+    .login-button {
+      display: inline-block;
+      background: #2e8b57;
+      color: #fff;
+      padding: 12px 22px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .login-button:hover {
+      background: #246c43;
+    }
+
+    #signInSection h2 {
+      margin-top: 0;
+      color: #1a1a1a;
+    }
+
+    #signInSection p {
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      color: #444;
+    }
+
     footer {
       text-align: center;
       padding: 1.5rem 2rem 3rem;
@@ -166,19 +242,45 @@
 
   <div class="container">
     <h1>Contact Us</h1>
-    <p>Have questions? We’re here to help you start your fitness journey.</p>
-    <form id="contactForm">
-      <label for="name">Your Name</label>
-      <input type="text" id="name" name="name" placeholder="Your Name" pattern="[A-Za-z\s]+" title="Please enter letters and spaces only." required>
-      <label for="phone">Your Phone Number</label>
+    <p>After creating account login to message us, for more information contact the number near footage.</p>    
+   
+    <p>Join Laura Fitness Gym and start your fitness journey with us.</p>
+     <form id="contactForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Your Full Name" pattern="[A-Za-z\s]+" title="Please enter letters and spaces only." required>
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="Your Email" pattern="[a-zA-Z0-9._%+-]+@(email\.com|institution\.edu|outlook\.com|yahoo\.com)" title="Use gmail.com, institution.edu, outlook.com, or yahoo.com." required>
+      <label for="phone">Phone Number</label>
       <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" pattern="\d+" inputmode="numeric" title="Please enter numbers only." required>
-      <label for="email">Your Email</label>
-      <input type="email" id="email" name="email" placeholder="Your Email" pattern="[a-zA-Z0-9._%+-]+@(email\.com|institution\.edu|outlook\.com|yahoo\.com)" title="Use email.com, institution.edu, outlook.com, or yahoo.com." required>
-      <label for="message">Your Message</label>
-      <textarea id="message" rows="5" name="message" placeholder="Your Message" required></textarea>
-      <button class="btn" type="submit">Send Message</button>
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Create Password" minlength="6" required>
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" minlength="6" required>
+      <button class="btn" type="submit">Create Account</button>
     </form>
-    <div id="successMessage" class="success-message">Your message has been received successfully, we will reach you as soon as possible.</div>
+    <div class="login-footer">
+      <p>Already having an account?</p>
+      <a href="#" id="loginButton" class="login-button">Log In</a>
+    </div>
+    <div id="createSuccessMessage" class="success-message">Your account has been created successfully.</div>
+    <div id="signInSection" style="display:none; margin-top: 2rem;">
+      <h2>Sign In</h2>
+      <p>Enter your password and message below to submit your request.</p>
+      <form id="signInForm">
+        <label for="signinEmail">Email Address</label>
+        <input type="email" id="signinEmail" name="signinEmail" placeholder="Your Email" pattern="[a-zA-Z0-9._%+-]+@(email\.com|institution\.edu|outlook\.com|yahoo\.com)" title="Use email.com, institution.edu, outlook.com, or yahoo.com." required>
+        <label for="signinPassword">Password</label>
+        <input type="password" id="signinPassword" name="signinPassword" placeholder="Your Password" minlength="6" required>
+        <label for="message">Message</label>
+        <textarea id="signinMessage" name="signinMessage" rows="4" placeholder="Type your message here" required></textarea>
+        <button class="btn" type="submit">Send Message</button>
+      </form>
+      <div id="messageSuccess" class="success-message">The message was submitted successfully.</div>
+      <div class="login-footer" style="margin-top:1rem;">
+        <span>Need to create an account?</span>
+        <a href="#" id="backToCreate" class="login-button">Create Account</a>
+      </div>
+    </div>
     <div class="contact-info">
       <p><b>Location:</b> Mlolongo Housing Estate, Nairobi Province, KE</p>
       <p><b>Phone:</b> +254 792919568</p>
@@ -186,9 +288,38 @@
   </div>
   <footer>© 2026 Laura Fitness Gym</footer>
   <script>
+    document.getElementById('loginButton').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.getElementById('contactForm').style.display = 'none';
+      document.querySelector('.login-footer').style.display = 'none';
+      document.getElementById('createSuccessMessage').style.display = 'none';
+      document.getElementById('signInSection').style.display = 'block';
+    });
+
+    document.getElementById('backToCreate').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.getElementById('contactForm').style.display = 'grid';
+      document.querySelector('.login-footer').style.display = 'flex';
+      document.getElementById('signInSection').style.display = 'none';
+      document.getElementById('messageSuccess').style.display = 'none';
+    });
+
     document.getElementById('contactForm').addEventListener('submit', function(event) {
       event.preventDefault();
-      var successMessage = document.getElementById('successMessage');
+
+      var password = document.getElementById('password').value;
+      var confirmPassword = document.getElementById('confirmPassword').value;
+      var successMessage = document.getElementById('createSuccessMessage');
+
+      if (password !== confirmPassword) {
+        successMessage.style.display = 'block';
+        successMessage.style.background = '#fdecea';
+        successMessage.style.color = '#b42318';
+        successMessage.style.borderColor = '#f5c6cb';
+        successMessage.textContent = 'Passwords do not match. Please try again.';
+        return;
+      }
+
       successMessage.style.display = 'block';
       this.reset();
     });
